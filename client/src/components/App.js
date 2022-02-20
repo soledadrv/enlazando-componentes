@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import SideBar from './SideBar';
 import TopBar from './TopBar';
 import ContentRowTop from './ContentRowTop';
@@ -21,13 +21,13 @@ function App() {
 
             <TopBar />
 
-            <Switch>
-              <Route exact path='/' component={ContentRowTop} />
-              <Route path='/lastmovie' component={LastMovieInDb} />
-              <Route path='/genres' component={GenresInDb} />
-              <Route path='/content' component={Chart} />
-              <Route component={NotFound} />
-            </Switch>
+            <Routes>
+              <Route exact path='/' element={<ContentRowTop />} />
+              <Route path='/lastmovie' element={<LastMovieInDb />} />
+              <Route path='/genres' element={<GenresInDb />} />
+              <Route path='/content' element={<Chart />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
             
             <Footer />
 
